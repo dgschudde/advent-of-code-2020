@@ -47,7 +47,7 @@ namespace Shared
             return default;
         }
 
-        private int[] ReadPuzzleInputAsync(string[] splittedResults)
+        private static int[] ReadPuzzleInputAsync(string[] splittedResults)
         {
             if (splittedResults == null)
             {

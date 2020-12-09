@@ -7,11 +7,19 @@
 
   <ItemGroup>
     <None Remove="input\day-one.txt" />
+    <None Remove="input\day-three-minumumtest.txt" />
+    <None Remove="input\day-three.txt" />
     <None Remove="input\day-two.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="input\day-one.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="input\day-three-minumumtest.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="input\day-three.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="input\day-two.txt">
