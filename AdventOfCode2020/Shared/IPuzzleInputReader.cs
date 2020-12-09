@@ -4,6 +4,6 @@ namespace Shared
 {
     public interface IPuzzleInputReader
     {
-        Task<int[]> ReadPuzzleInputAsync();
+        Task<T> ReadPuzzleInputAsync<T>();
     }
 }

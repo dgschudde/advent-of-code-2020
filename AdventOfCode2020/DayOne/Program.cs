@@ -7,7 +7,7 @@ namespace DayOne
 {
     internal class Program
     {
-        private const string FilePath = @"C:\LocalDevelop\advent-of-code-2020\AdventOfCode2020\input\day-one.txt";
+        private const string FilePath = @"input/day-one.txt";
 
         public IPuzzleInputReader InputReader { get; }
 
@@ -16,10 +16,10 @@ namespace DayOne
             InputReader = puzzleInputReader;
         }
 
-        private static async Task Main(string[] args)
+        private static async Task Main()
         {
             IPuzzleInputReader puzzleInputReader = new PuzzleInputReader(FilePath);
-            var input = await puzzleInputReader.ReadPuzzleInputAsync();
+            var input = await puzzleInputReader.ReadPuzzleInputAsync<int[]>();
 
             var middle = input.Max() / 2 + 1;
 
