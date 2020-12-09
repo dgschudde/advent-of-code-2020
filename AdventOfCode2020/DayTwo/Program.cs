@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using DayTwo.Model;
+using Shared;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,9 +25,13 @@ namespace DayTwo
             var passwordPolicyParser = new PasswordPolicyParser(input);
             var parsedInput = passwordPolicyParser.ParseInput();
 
-            int occurrences = parsedInput.Count(passwordPolicy => passwordPolicy.IsValid());
+            var passwordPolicies = parsedInput as PasswordPolicy[] ?? parsedInput.ToArray();
+            int occurrences = passwordPolicies.Count(passwordPolicy => passwordPolicy.IsValid());
+            Console.WriteLine($"{occurrences} password(s) are valid according new policy");
 
-            Console.WriteLine($"{occurrences} password(s) are valid");
+            occurrences = passwordPolicies.Count(passwordPolicy => passwordPolicy.IsValidAccordingNewPolicy());
+            Console.WriteLine($"{occurrences} password(s) are valid according new policy");
+
             Console.ReadKey();
         }
     }

@@ -12,5 +12,14 @@ namespace DayTwo
 
             return amount >= passwordPolicy.Minimum && amount <= passwordPolicy.Maximum;
         }
+
+        public static bool IsValidAccordingNewPolicy(this PasswordPolicy passwordPolicy)
+        {
+            char[] password = passwordPolicy.Password.ToCharArray();
+
+            return
+                password[passwordPolicy.Minimum - 1] == passwordPolicy.CharacterToCheck ^
+                password[passwordPolicy.Maximum - 1] == passwordPolicy.CharacterToCheck;
+        }
     }
 }
