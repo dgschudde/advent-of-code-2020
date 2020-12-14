@@ -37,8 +37,22 @@ namespace DayFive
             }
 
             seatIds.Sort();
+
+            var currentSeatId = 0;
+
+            for (var i = 0; i < seatIds.Count - 1; i++)
+            {
+                currentSeatId = seatIds[i];
+                var nextSeatId = seatIds[i + 1];
+                if (nextSeatId - currentSeatId > 1)
+                {
+                    break;
+                }
+            }
+            
             var maxSeatId = seatIds.Max(x => x);
             Console.WriteLine($"Highest seat ID on a boarding pass is: {maxSeatId}");
+            Console.WriteLine($"My seatId is: {currentSeatId + 1}");
             Console.ReadKey();
         }
     }
