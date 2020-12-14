@@ -6,16 +6,9 @@ using System.Threading.Tasks;
 
 namespace DayTwo
 {
-    internal class Program
+    internal static class Program
     {
         private const string FilePath = @"input/day-two.txt";
-
-        public IPuzzleInputReader InputReader { get; }
-
-        public Program(IPuzzleInputReader puzzleInputReader)
-        {
-            InputReader = puzzleInputReader;
-        }
 
         private static async Task Main()
         {
@@ -27,7 +20,7 @@ namespace DayTwo
 
             var passwordPolicies = parsedInput as PasswordPolicy[] ?? parsedInput.ToArray();
             int occurrences = passwordPolicies.Count(passwordPolicy => passwordPolicy.IsValid());
-            Console.WriteLine($"{occurrences} password(s) are valid according new policy");
+            Console.WriteLine($"{occurrences} password(s) are valid");
 
             occurrences = passwordPolicies.Count(passwordPolicy => passwordPolicy.IsValidAccordingNewPolicy());
             Console.WriteLine($"{occurrences} password(s) are valid according new policy");

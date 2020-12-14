@@ -5,16 +5,9 @@ using System.Threading.Tasks;
 
 namespace DayOne
 {
-    internal class Program
+    internal static class Program
     {
         private const string FilePath = @"input/day-one.txt";
-
-        public IPuzzleInputReader InputReader { get; }
-
-        public Program(IPuzzleInputReader puzzleInputReader)
-        {
-            InputReader = puzzleInputReader;
-        }
 
         private static async Task Main()
         {
