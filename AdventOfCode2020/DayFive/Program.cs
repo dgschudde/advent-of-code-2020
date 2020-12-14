@@ -19,12 +19,12 @@ namespace DayFive
 
             foreach (var entry in input)
             {
-                string row = entry.Substring(0, 7);
+                var row = entry.Substring(0, 7);
                 
                 row = row.Replace("F", "0");
                 row = row.Replace("B", "1");
                 
-                string column = entry.Substring(7, 3);
+                var column = entry.Substring(7, 3);
 
                 column = column.Replace("L", "0");
                 column = column.Replace("R", "1");
