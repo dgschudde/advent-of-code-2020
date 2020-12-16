@@ -37,7 +37,6 @@ namespace DayFourteen
                             case 'X':
                                 break;
                             case '0':
-                                result[position] = '0';
                                 break;
                             case '1':
                                 result[position] = '1';
