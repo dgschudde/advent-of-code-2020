@@ -1,46 +1,53 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="input\day-four.txt" />
-    <None Remove="input\day-one.txt" />
-    <None Remove="input\day-three-minimum-test.txt" />
-    <None Remove="input\day-three.txt" />
-    <None Remove="input\day-two.txt" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="input\day-eighteen.txt" />
+		<None Remove="input\day-four.txt" />
+		<None Remove="input\day-one.txt" />
+		<None Remove="input\day-three-minimum-test.txt" />
+		<None Remove="input\day-three.txt" />
+		<None Remove="input\day-two.txt" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="input\day-four.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="input\day-one.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="input\day-three-minimum-test.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="input\day-three.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="input\day-two.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Remove="input\day-three-test.txt" />
-    <Content Include="input\day-three-test.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Remove="input\day-five.txt" />
-    <Content Include="input\day-five.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Remove="input\day-fourteen.txt" />
-    <Content Include="input\day-fourteen.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="input\day-four.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="input\day-eighteen.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="input\day-one.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="input\day-three-minimum-test.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="input\day-three.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="input\day-two.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<None Remove="input\day-three-test.txt" />
+		<Content Include="input\day-three-test.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<None Remove="input\day-five.txt" />
+		<Content Include="input\day-five.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<None Remove="input\day-fourteen.txt" />
+		<Content Include="input\day-fourteen.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
+	<ItemGroup>
+		<Resource Include="input\day-eighteen.txt" />
+	</ItemGroup>
 </Project>
