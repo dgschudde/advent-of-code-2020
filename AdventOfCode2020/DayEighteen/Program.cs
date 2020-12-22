@@ -13,21 +13,35 @@ namespace DayEighteen
         {
             IPuzzleInputReader puzzleInputReader = new PuzzleInputReader(FilePath);
             string[] input = await puzzleInputReader.ReadPuzzleInputAsync<string[]>();
-            Int64 total = 0;
+
+            ulong total = 0;
 
             foreach (var mathTask in input)
             {
-                string currentTask = mathTask;
-                int answer;
-                do
+                var currentTask = mathTask;
+                ulong subTaskValue = 0;
+
+                while (currentTask.Contains('+') || currentTask.Contains('*'))
                 {
                     var subTask = SplitTask(currentTask);
-                    answer = Calculate(subTask);
-                    currentTask = currentTask.Replace(subTask, answer.ToString());
-                } while (currentTask.Contains('+') || currentTask.Contains('*'));
+                    subTaskValue = Calculate(subTask);
+                    currentTask = currentTask.Replace(subTask, subTaskValue.ToString());
+                }
 
-                total += answer;
+                try
+                {
+                    checked
+                    {
+                        total += subTaskValue;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
             }
+
             Console.WriteLine("Answer: " + total);
         }
 
@@ -42,7 +56,7 @@ namespace DayEighteen
             return mathTask.Substring(startIndex, endIndex - startIndex + 1);
         }
 
-        private static int Calculate(string mathTask)
+        private static ulong Calculate(string mathTask)
         {
             var strippedTask = mathTask.Replace("(", string.Empty);
             strippedTask = strippedTask.Replace(")", string.Empty);
@@ -50,12 +64,12 @@ namespace DayEighteen
 
             var mathTaskArray = strippedTask.ToCharArray();
 
-            var answer = 0;
+            ulong answer = 0;
             var operation = '\0';
 
-            for (var current = 0; current < mathTaskArray.Length; current++)
+            for (ulong current = 0; current < (ulong)mathTaskArray.Length; current++)
             {
-                int nextNumber;
+                ulong nextNumber;
                 switch (operation)
                 {
                     case '+':
@@ -77,7 +91,7 @@ namespace DayEighteen
                         break;
                 }
 
-                if (current < mathTaskArray.Length)
+                if (current < (ulong)mathTaskArray.Length)
                 {
                     operation = mathTaskArray[current];
                 }
@@ -85,19 +99,19 @@ namespace DayEighteen
 
             return answer;
 
-            static int Floor(int nextNumber)
+            static ulong Floor(ulong nextNumber)
             {
-                return (int)Math.Floor(Math.Log10(nextNumber) + 1);
+                return (ulong)Math.Floor(Math.Log10(nextNumber) + 1);
             }
         }
 
-        private static int NextNumber(int current, IReadOnlyList<char> mathTaskArray)
+        private static ulong NextNumber(ulong current, IReadOnlyList<char> mathTaskArray)
         {
             var s = string.Empty;
 
-            for (var i = current; i < mathTaskArray.Count; i++)
+            for (ulong i = current; i < (ulong)mathTaskArray.Count; i++)
             {
-                var chartToAdd = mathTaskArray[i];
+                var chartToAdd = mathTaskArray[(int)i];
                 if (char.IsDigit(chartToAdd))
                 {
                     s += chartToAdd;
@@ -108,7 +122,7 @@ namespace DayEighteen
                 }
             }
 
-            return int.Parse(s);
+            return ulong.Parse(s);
         }
     }
 }
